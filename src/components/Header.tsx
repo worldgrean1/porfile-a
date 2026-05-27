@@ -70,13 +70,15 @@ export default function Header({ scrollProgress, activeBgColor, activeTextColor 
     }
   };
 
+  const isLight = activeBgColor === '#FFFFFF';
+
   return (
     <header
       className="fixed top-0 left-0 w-full z-50 px-6 py-5 lg:px-16 flex justify-between items-center transition-all duration-500"
       style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        backgroundColor: isLight ? 'rgba(255, 255, 255, 0.85)' : 'rgba(0, 0, 0, 0.75)',
         backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.03)',
+        borderBottom: isLight ? '1px solid rgba(0, 0, 0, 0.04)' : '1px solid rgba(255, 255, 255, 0.03)',
         color: activeTextColor
       }}
     >
@@ -86,7 +88,7 @@ export default function Header({ scrollProgress, activeBgColor, activeTextColor 
         </span>
         <span
           className="text-[10px] uppercase tracking-[0.25em] font-mono font-bold transition-colors duration-500 hidden sm:inline-block"
-          style={{ color: 'rgba(255, 255, 255, 0.55)' }}
+          style={{ color: isLight ? 'rgba(0, 0, 0, 0.55)' : 'rgba(255, 255, 255, 0.55)' }}
         >
           TRANSLINK STUDIO — CREATIVE COLLECTIVE
         </span>
@@ -100,7 +102,7 @@ export default function Header({ scrollProgress, activeBgColor, activeTextColor 
           </span>
           <span
             className="text-[8px] tracking-widest font-bold transition-colors duration-500"
-            style={{ color: 'rgba(255, 255, 255, 0.35)' }}
+            style={{ color: isLight ? 'rgba(0, 0, 0, 0.35)' : 'rgba(255, 255, 255, 0.35)' }}
           >
             SYS_COORD — {currentSectionLabel}
           </span>
@@ -111,13 +113,13 @@ export default function Header({ scrollProgress, activeBgColor, activeTextColor 
           onClick={(e) => handleNavClick('contact', e)}
           className="px-5 py-2.5 border font-mono font-bold tracking-widest text-[11px] uppercase rounded-lg flex items-center space-x-2 transition-all duration-300 hover:scale-[1.03] backdrop-blur-sm hover:border-cyan-500/50"
           style={{
-            borderColor: 'rgba(255,255,255,0.1)',
-            backgroundColor: 'rgba(255,255,255,0.02)',
-            color: '#fff'
+            borderColor: isLight ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)',
+            backgroundColor: isLight ? 'rgba(0,0,0,0.02)' : 'rgba(255,255,255,0.02)',
+            color: isLight ? '#000' : '#fff'
           }}
           id="hire-dial-btn"
         >
-          <span style={{ color: '#fff' }}>WORK WITH US</span>
+          <span style={{ color: isLight ? '#000' : '#fff' }}>WORK WITH US</span>
           <ArrowUpRight className="w-3.5 h-3.5 text-cyan-500 stroke-[2.5]" />
         </a>
       </div>
