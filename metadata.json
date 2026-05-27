@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Alex Morgan Portfolio",
+  "description": "An immersive digital experience portfolio for Alex Morgan, a Digital Experience Architect. Built with Three.js, React, and Tailwind CSS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

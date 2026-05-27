@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  background: #000000;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "PP Neue Machina", "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Premium Dark-to-Light Gradient System */
+  --color-brand-black: #000000;
+  --color-brand-dark: #050505;
+  --color-brand-dark-elevated: #0A0A0A;
+  --color-brand-dark-subtle: #0F0F0F;
+  --color-brand-dark-mid: #141414;
+  --color-brand-gray: #1A1A1A;
+  --color-brand-light-bg: #000000;
+  --color-brand-cream: #FFFFFF;
+  --color-brand-light-gray: #000000;
+
+  /* Unified Cyan/Teal Brand Color System */
+  --color-brand-cyan: #2dd4bf;
+  --color-brand-cyan-hover: #14b8a6;
+  --color-brand-cyan-light: #5eead4;
+  --color-brand-cyan-dark: #0d9488;
+  --color-brand-teal: #2dd4bf;
+  --color-brand-teal-hover: #14b8a6;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.95);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 212, 191, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(45, 212, 191, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 212, 191, 0.5);
+}
+
+/* Enhanced smooth transitions */
+.bg-transition-element {
+  transition: background-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+              color 1s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle scanline overlay for premium texture */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.12) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 40;
+  opacity: 0.08;
+}
+
+/* 3D Perspective card container for premium depth */
+.card-perspective {
+  perspective: 1200px;
+}
+
+.tilt-card {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* Hide default cursor on desktop to support a custom responsive cursor */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  a, button, [role="button"], select, textarea, input, label, svg {
+    cursor: none;
+  }
+}
+
+/* Premium glow animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s infinite ease-in-out;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradientMove 8s ease infinite;
+}
+
+/* Hardware accelerated rotation animations */
+@keyframes spin-clockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-counterclockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow-cw {
+  animation: spin-clockwise 120s linear infinite;
+}
+
+.animate-spin-slow-ccw {
+  animation: spin-counterclockwise 60s linear infinite;
+}
+
+.animate-spin-normal-cw {
+  animation: spin-clockwise 35s linear infinite;
+}
+
+.animate-spin-very-slow-ccw {
+  animation: spin-counterclockwise 350s linear infinite;
+}
+
+.animate-spin-fast-cw {
+  animation: spin-clockwise 25s linear infinite;
+}
+
+/* Wave slide animation */
+@keyframes wave-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-40px); }
+}
+
+.animate-wave-slide {
+  animation: wave-slide 4s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Premium text selection styling */
+::selection {
+  background-color: rgba(45, 212, 191, 0.25);
+  color: inherit;
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid rgba(45, 212, 191, 0.6);
+  outline-offset: 2px;
+}
+
+/* --- ACCESSIBILITY: REDUCED MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
